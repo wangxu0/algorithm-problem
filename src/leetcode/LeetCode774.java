@@ -11,13 +11,13 @@ public class LeetCode774 {
 
     public double minmaxGasDist(int[] stations, int K) {
         int LEN = stations.length;
-        double left = 0, right = stations[LEN-1]-stations[0],mid=0;
+        double left = 0, right = stations[LEN - 1] - stations[0], mid = 0;
 
-        while (right>=left+0.000001) {
+        while (right >= left + 0.000001) {
             mid = right - (right - left) / 2;
             int cnt = 0;
-            for (int i=0; i<LEN-1; i++) {
-                cnt += Math.ceil((stations[i+1]-stations[i])/mid) - 1; //重点理解代码，d_i / (cnt_i + 1) <= mid
+            for (int i = 0; i < LEN - 1; i++) {
+                cnt += Math.ceil((stations[i + 1] - stations[i]) / mid) - 1; //重点理解代码，d_i / (cnt_i + 1) <= mid
             }
             if (cnt > K) {
                 left = mid;
